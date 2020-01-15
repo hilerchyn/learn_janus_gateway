@@ -541,6 +541,17 @@ lua_DATA += \
 EXTRA_DIST += conf/janus.plugin.lua.jcfg.sample.in
 endif
 
+
+if ENABLE_PLUGIN_MULTILIVE
+plugin_LTLIBRARIES += plugins/libjanus_multilive.la
+plugins_libjanus_multilive_la_SOURCES = plugins/janus_multilive.c
+plugins_libjanus_multilive_la_CFLAGS = $(plugins_cflags)
+plugins_libjanus_multilive_la_LDFLAGS = $(plugins_ldflags)
+plugins_libjanus_multilive_la_LIBADD = $(plugins_libadd)
+conf_DATA += conf/janus.plugin.multilive.jcfg.sample
+EXTRA_DIST += conf/janus.plugin.lua.jcfg.sample.in
+endif
+
 if ENABLE_PLUGIN_DUKTAPE
 plugin_LTLIBRARIES += plugins/libjanus_duktape.la
 plugins_libjanus_duktape_la_SOURCES = plugins/janus_duktape.c \

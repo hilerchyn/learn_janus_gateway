@@ -1,8 +1,0 @@
-//
-// Created by hiler on 2020/1/13.
-//
-
-#ifndef JANUS_GATEWAY_JANUS_MULTILIVE_H
-#define JANUS_GATEWAY_JANUS_MULTILIVE_H
-
-#endif //JANUS_GATEWAY_JANUS_MULTILIVE_H

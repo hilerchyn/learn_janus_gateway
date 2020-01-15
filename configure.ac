@@ -156,6 +156,8 @@ AC_ARG_ENABLE([all-plugins],
                      [enable_plugin_echotest=no])
                AS_IF([test "x$enable_plugin_lua" != "xyes"],
                      [enable_plugin_lua=no])
+               AS_IF([test "x$enable_plugin_multilive" != "xyes"],
+                     [enable_plugin_multilive=no])
                AS_IF([test "x$enable_plugin_recordplay" != "xyes"],
                      [enable_plugin_recordplay=no])
                AS_IF([test "x$enable_plugin_sip" != "xyes"],
@@ -697,6 +699,13 @@ AC_ARG_ENABLE([plugin-lua],
                      [enable_plugin_lua=no])],
               [enable_plugin_lua=no])
 
+AC_ARG_ENABLE([plugin-multilive],
+              [AS_HELP_STRING([--enable-plugin-multilive],
+                              [Enable lua plugin])],
+              [AS_IF([test "x$enable_plugin_multilive" != "xyes"],
+                     [enable_plugin_multilive=no])],
+              [enable_plugin_multilive=no])
+
 AC_ARG_ENABLE([plugin-recordplay],
               [AS_HELP_STRING([--disable-plugin-recordplay],
                               [Disable record&play plugin])],
@@ -858,6 +867,7 @@ AM_CONDITIONAL([ENABLE_PLUGIN_AUDIOBRIDGE], [test "x$enable_plugin_audiobridge" 
 AM_CONDITIONAL([ENABLE_PLUGIN_DUKTAPE], [test "x$enable_plugin_duktape" = "xyes"])
 AM_CONDITIONAL([ENABLE_PLUGIN_ECHOTEST], [test "x$enable_plugin_echotest" = "xyes"])
 AM_CONDITIONAL([ENABLE_PLUGIN_LUA], [test "x$enable_plugin_lua" = "xyes"])
+AM_CONDITIONAL([ENABLE_PLUGIN_MULTILIVE], [test "x$enable_plugin_multilive" = "xyes"])
 AM_CONDITIONAL([ENABLE_PLUGIN_RECORDPLAY], [test "x$enable_plugin_recordplay" = "xyes"])
 AM_CONDITIONAL([ENABLE_PLUGIN_SIP], [test "x$enable_plugin_sip" = "xyes"])
 AM_CONDITIONAL([ENABLE_PLUGIN_SIPRE], [test "x$enable_plugin_sipre" = "xyes"])
@@ -1069,6 +1079,9 @@ AM_COND_IF([ENABLE_PLUGIN_TEXTROOM],
 AM_COND_IF([ENABLE_PLUGIN_LUA],
 	[echo "    Lua Interpreter:       yes"],
 	[echo "    Lua Interpreter:       no"])
+AM_COND_IF([ENABLE_PLUGIN_MULTILIVE],
+	[echo "    Multi Live:       yes"],
+	[echo "    Multi Live:       no"])
 AM_COND_IF([ENABLE_PLUGIN_DUKTAPE],
 	[echo "    Duktape Interpreter:   yes"],
 	[echo "    Duktape Interpreter:   no"])
